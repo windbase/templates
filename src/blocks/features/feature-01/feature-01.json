@@ -1,16 +1,14 @@
 {
-  "id": "feature-01",
-  "name": "feature-01",
-  "description": "feature-01 block",
-  "category": "features",
-  "tags": [
-    "new"
-  ],
-  "metadata": {
-    "author": "Windbase Team",
-    "created": "2025-07-12T01:21:45.329Z",
-    "updated": "2025-07-12T01:21:45.329Z",
-    "version": "1.0.0"
-  },
-  "preview": "./preview.png"
+	"id": "feature-01",
+	"name": "feature-01",
+	"description": "feature-01 block",
+	"category": "features",
+	"tags": ["new"],
+	"metadata": {
+		"author": "Windbase Team",
+		"created": "2025-07-12T01:21:45.329Z",
+		"updated": "2025-07-12T01:21:45.329Z",
+		"version": "1.0.0"
+	},
+	"preview": "./preview.png"
 }

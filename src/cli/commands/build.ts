@@ -67,7 +67,10 @@ export function buildCommand() {
 
 								// Copy preview.png file to API directory if it exists
 								if (existsSync(previewFile)) {
-									const apiPreviewFile = join(blocksApiDir, `${blockDir}-preview.png`);
+									const apiPreviewFile = join(
+										blocksApiDir,
+										`${blockDir}-preview.png`
+									);
 									copyFileSync(previewFile, apiPreviewFile);
 								}
 							} else {
@@ -116,18 +119,27 @@ export function buildCommand() {
 								templates.push(result.data);
 
 								// Copy JSON file to API directory
-								const apiJsonFile = join(templatesApiDir, `${templateDir}.json`);
+								const apiJsonFile = join(
+									templatesApiDir,
+									`${templateDir}.json`
+								);
 								copyFileSync(jsonFile, apiJsonFile);
 
 								// Copy HTML file to API directory if it exists
 								if (existsSync(htmlFile)) {
-									const apiHtmlFile = join(templatesApiDir, `${templateDir}.html`);
+									const apiHtmlFile = join(
+										templatesApiDir,
+										`${templateDir}.html`
+									);
 									copyFileSync(htmlFile, apiHtmlFile);
 								}
 
 								// Copy preview.png file to API directory if it exists
 								if (existsSync(previewFile)) {
-									const apiPreviewFile = join(templatesApiDir, `${templateDir}-preview.png`);
+									const apiPreviewFile = join(
+										templatesApiDir,
+										`${templateDir}-preview.png`
+									);
 									copyFileSync(previewFile, apiPreviewFile);
 								}
 
@@ -340,5 +352,7 @@ export function buildCommand() {
 	console.log(`   📄 /api/blocks/{id}-preview.png - Individual block preview`);
 	console.log(`   📄 /api/templates/{id}.json - Individual template schema`);
 	console.log(`   📄 /api/templates/{id}.html - Individual template HTML`);
-	console.log(`   📄 /api/templates/{id}-preview.png - Individual template preview`);
+	console.log(
+		`   📄 /api/templates/{id}-preview.png - Individual template preview`
+	);
 }
