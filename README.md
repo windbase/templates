@@ -20,17 +20,13 @@ bun install
 
 ## CLI Usage
 
-### Create a new block
+### Create a new block/template
 
 ```bash
-bun run dev create block --name "Hero Section" --category hero
+bun windbase create
 ```
 
-### Create a new template
-
-```bash
-bun run dev create template --name "Landing Page" --category landing-page
-```
+You will be prompted to enter the name and category of the block/template.
 
 ### Validate all templates and blocks
 
@@ -38,16 +34,14 @@ bun run dev create template --name "Landing Page" --category landing-page
 bun run validate
 ```
 
-### Build distribution files
+### Generate preview image
 
 ```bash
-bun run build
-```
+# For block
+bun windbase preview -b <block-id>
 
-### Open HTML preview in browser
-
-```bash
-bun run dev preview --open
+# For template
+bun windbase preview -t <template-id>
 ```
 
 ## File Structure
@@ -201,16 +195,21 @@ const component = {
 
 ### 1. Create a new block:
 ```bash
-bun run dev create block --name "Hero Section" --category hero
+bun windbase create
 ```
+
+You will be prompted to enter the name and category of the block.
 
 ### 2. Edit the generated files:
 - Edit `src/blocks/hero/hero-section/hero-section.json` for metadata
 - Edit `src/blocks/hero/hero-section/hero-section.html` for HTML content
 
-### 3. Preview your changes:
+### 3. Generate preview image:
+
+You can generate a preview image for your block or template by running the following command:
+
 ```bash
-bun run dev preview --open
+bun windbase preview -b <block-id>
 ```
 
 ### 4. Build and deploy:
@@ -220,11 +219,9 @@ bun run build
 
 ## Development Scripts
 
-- `bun run format` - Format code with Biome
+- `bun run format:write` - Format code with Biome
 - `bun run build` - Build distribution files and API structure
 - `bun run validate` - Validate all schemas
-- `bun run dev` - Run CLI in development mode
-- `bun run dev preview --open` - Open HTML preview in browser
 
 ## Adding New Categories
 
