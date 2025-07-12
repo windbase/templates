@@ -55,28 +55,19 @@ export function buildCommand() {
 							if (result.success) {
 								blocks.push(result.data);
 
-								// Create category directory in API
-								const categoryApiDir = join(blocksApiDir, category);
-								if (!existsSync(categoryApiDir)) {
-									mkdirSync(categoryApiDir, { recursive: true });
-								}
-
-								// Copy JSON file to API category directory
-								const apiJsonFile = join(categoryApiDir, `${blockDir}.json`);
+								// Copy JSON file to API directory
+								const apiJsonFile = join(blocksApiDir, `${blockDir}.json`);
 								copyFileSync(jsonFile, apiJsonFile);
 
-								// Copy HTML file to API category directory if it exists
+								// Copy HTML file to API directory if it exists
 								if (existsSync(htmlFile)) {
-									const apiHtmlFile = join(categoryApiDir, `${blockDir}.html`);
+									const apiHtmlFile = join(blocksApiDir, `${blockDir}.html`);
 									copyFileSync(htmlFile, apiHtmlFile);
 								}
 
-								// Copy preview.png file to API category directory if it exists
+								// Copy preview.png file to API directory if it exists
 								if (existsSync(previewFile)) {
-									const apiPreviewFile = join(
-										categoryApiDir,
-										`${blockDir}-preview.png`
-									);
+									const apiPreviewFile = join(blocksApiDir, `${blockDir}-preview.png`);
 									copyFileSync(previewFile, apiPreviewFile);
 								}
 							} else {
@@ -124,31 +115,19 @@ export function buildCommand() {
 							if (result.success) {
 								templates.push(result.data);
 
-								// Create category directory in API
-								const categoryApiDir = join(templatesApiDir, category);
-								if (!existsSync(categoryApiDir)) {
-									mkdirSync(categoryApiDir, { recursive: true });
-								}
-
-								// Copy JSON file to API category directory
-								const apiJsonFile = join(categoryApiDir, `${templateDir}.json`);
+								// Copy JSON file to API directory
+								const apiJsonFile = join(templatesApiDir, `${templateDir}.json`);
 								copyFileSync(jsonFile, apiJsonFile);
 
-								// Copy HTML file to API category directory if it exists
+								// Copy HTML file to API directory if it exists
 								if (existsSync(htmlFile)) {
-									const apiHtmlFile = join(
-										categoryApiDir,
-										`${templateDir}.html`
-									);
+									const apiHtmlFile = join(templatesApiDir, `${templateDir}.html`);
 									copyFileSync(htmlFile, apiHtmlFile);
 								}
 
-								// Copy preview.png file to API category directory if it exists
+								// Copy preview.png file to API directory if it exists
 								if (existsSync(previewFile)) {
-									const apiPreviewFile = join(
-										categoryApiDir,
-										`${templateDir}-preview.png`
-									);
+									const apiPreviewFile = join(templatesApiDir, `${templateDir}-preview.png`);
 									copyFileSync(previewFile, apiPreviewFile);
 								}
 
@@ -187,15 +166,15 @@ export function buildCommand() {
 		apiStructure: {
 			blocks: {
 				collection: '/api/blocks.json',
-				individual: '/api/blocks/{category}/{id}.json',
-				html: '/api/blocks/{category}/{id}.html',
-				preview: '/api/blocks/{category}/{id}-preview.png'
+				individual: '/api/blocks/{id}.json',
+				html: '/api/blocks/{id}.html',
+				preview: '/api/blocks/{id}-preview.png'
 			},
 			templates: {
 				collection: '/api/templates.json',
-				individual: '/api/templates/{category}/{id}.json',
-				html: '/api/templates/{category}/{id}.html',
-				preview: '/api/templates/{category}/{id}-preview.png'
+				individual: '/api/templates/{id}.json',
+				html: '/api/templates/{id}.html',
+				preview: '/api/templates/{id}-preview.png'
 			}
 		}
 	};
@@ -280,27 +259,27 @@ export function buildCommand() {
                     <h3 class="font-semibold text-gray-700 mb-2">Individual Items</h3>
                     <div class="space-y-2">
                         <div class="bg-gray-100 p-3 rounded">
-                            <code class="text-sm text-green-600">GET /api/blocks/{category}/{id}.json</code>
+                            <code class="text-sm text-green-600">GET /api/blocks/{id}.json</code>
                             <p class="text-xs text-gray-600 mt-1">Block schema</p>
                         </div>
                         <div class="bg-gray-100 p-3 rounded">
-                            <code class="text-sm text-green-600">GET /api/blocks/{category}/{id}.html</code>
+                            <code class="text-sm text-green-600">GET /api/blocks/{id}.html</code>
                             <p class="text-xs text-gray-600 mt-1">Block HTML content</p>
                         </div>
                         <div class="bg-gray-100 p-3 rounded">
-                            <code class="text-sm text-green-600">GET /api/blocks/{category}/{id}-preview.png</code>
+                            <code class="text-sm text-green-600">GET /api/blocks/{id}-preview.png</code>
                             <p class="text-xs text-gray-600 mt-1">Block preview image</p>
                         </div>
                         <div class="bg-gray-100 p-3 rounded">
-                            <code class="text-sm text-green-600">GET /api/templates/{category}/{id}.json</code>
+                            <code class="text-sm text-green-600">GET /api/templates/{id}.json</code>
                             <p class="text-xs text-gray-600 mt-1">Template schema</p>
                         </div>
                         <div class="bg-gray-100 p-3 rounded">
-                            <code class="text-sm text-green-600">GET /api/templates/{category}/{id}.html</code>
+                            <code class="text-sm text-green-600">GET /api/templates/{id}.html</code>
                             <p class="text-xs text-gray-600 mt-1">Template HTML content</p>
                         </div>
                         <div class="bg-gray-100 p-3 rounded">
-                            <code class="text-sm text-green-600">GET /api/templates/{category}/{id}-preview.png</code>
+                            <code class="text-sm text-green-600">GET /api/templates/{id}-preview.png</code>
                             <p class="text-xs text-gray-600 mt-1">Template preview image</p>
                         </div>
                     </div>
@@ -356,20 +335,10 @@ export function buildCommand() {
 	console.log('\n🌐 API Endpoints:');
 	console.log(`   📋 /api/blocks.json - All blocks`);
 	console.log(`   📋 /api/templates.json - All templates`);
-	console.log(
-		`   📄 /api/blocks/{category}/{id}.json - Individual block schema`
-	);
-	console.log(`   📄 /api/blocks/{category}/{id}.html - Individual block HTML`);
-	console.log(
-		`   📄 /api/blocks/{category}/{id}-preview.png - Individual block preview`
-	);
-	console.log(
-		`   📄 /api/templates/{category}/{id}.json - Individual template schema`
-	);
-	console.log(
-		`   📄 /api/templates/{category}/{id}.html - Individual template HTML`
-	);
-	console.log(
-		`   📄 /api/templates/{category}/{id}-preview.png - Individual template preview`
-	);
+	console.log(`   📄 /api/blocks/{id}.json - Individual block schema`);
+	console.log(`   📄 /api/blocks/{id}.html - Individual block HTML`);
+	console.log(`   📄 /api/blocks/{id}-preview.png - Individual block preview`);
+	console.log(`   📄 /api/templates/{id}.json - Individual template schema`);
+	console.log(`   📄 /api/templates/{id}.html - Individual template HTML`);
+	console.log(`   📄 /api/templates/{id}-preview.png - Individual template preview`);
 }
