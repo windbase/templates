@@ -1,6 +1,4 @@
-# Windbase Templates Repository
-
-A dynamic template repository for Windbase with CLI tooling and automated CI/CD pipeline.
+<img width="1080" height="258" alt="Artboard" src="https://github.com/user-attachments/assets/026090a0-60bb-4189-9bd9-d17f4e1c05c3" />
 
 ## Overview
 
