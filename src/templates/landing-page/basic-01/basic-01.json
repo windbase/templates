@@ -1,0 +1,14 @@
+{
+	"id": "basic-01",
+	"name": "basic-01",
+	"description": "basic-01 template",
+	"category": "landing-page",
+	"tags": ["new"],
+	"metadata": {
+		"author": "Windbase Team",
+		"created": "2025-07-11T01:07:47.678Z",
+		"updated": "2025-07-11T01:07:47.678Z",
+		"version": "1.0.0"
+	},
+	"preview": "./preview.png"
+}

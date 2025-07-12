@@ -1,0 +1,14 @@
+{
+	"id": "cta-01",
+	"name": "CTA-01",
+	"description": "CTA-01 block",
+	"category": "call-to-action",
+	"tags": ["new"],
+	"preview": "./preview.png",
+	"metadata": {
+		"author": "Windbase Team",
+		"created": "2025-07-11T00:52:32.711Z",
+		"updated": "2025-07-11T00:52:32.711Z",
+		"version": "1.0.0"
+	}
+}

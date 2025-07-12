@@ -1,0 +1,51 @@
+{
+	"name": "windbase-templates",
+	"version": "1.0.0",
+	"description": "Dynamic template repository for Windbase with CLI tooling",
+	"module": "index.ts",
+	"type": "module",
+	"main": "dist/index.js",
+	"bin": {
+		"windbase": "./dist/cli/windbase.js"
+	},
+	"scripts": {
+		"windbase": "bun run src/cli/bin/windbase.ts",
+		"format": "biome check --write .",
+		"build": "bun run build:schemas",
+		"build:schemas": "bun run src/cli/commands/build.ts",
+		"validate": "bun run src/cli/commands/validate.ts",
+		"test": "bun test"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2.1.1",
+		"@types/bun": "latest",
+		"@types/fs-extra": "^11.0.4"
+	},
+	"peerDependencies": {
+		"typescript": "^5"
+	},
+	"dependencies": {
+		"@types/inquirer": "^9.0.8",
+		"chalk": "^5.3.0",
+		"commander": "^12.0.0",
+		"fs-extra": "^11.2.0",
+		"inquirer": "^12.7.0",
+		"playwright": "^1.54.0",
+		"sharp": "^0.34.3",
+		"zod": "^4.0.5"
+	},
+	"keywords": [
+		"windbase",
+		"templates",
+		"cli",
+		"html",
+		"css",
+		"components"
+	],
+	"author": "Windbase Team",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/windbase/templates.git"
+	}
+}
