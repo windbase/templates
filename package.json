@@ -10,9 +10,9 @@
 	},
 	"scripts": {
 		"windbase": "bun run src/cli/bin/windbase.ts",
-		"format": "biome check --write .",
-		"build": "bun run build:schemas",
-		"build:schemas": "bun run src/cli/commands/build.ts",
+		"format:check": "biome check .",
+		"format:write": "biome check --write .",
+		"build": "bun windbase build",
 		"validate": "bun run src/cli/commands/validate.ts",
 		"test": "bun test"
 	},
